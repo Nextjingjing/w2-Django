@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <title>All Notes</title>
+
+</head>
+
+<body>
+
+    <h1>All Notes</h1>
+
+    <ul>
+
+        {% for n in notes %}
+
+            <li>
+
+                <a href="{% url 'note:detail' n.id %}">{{ n.title }}</a>
+
+            
+            </li>
+
+        {% endfor %}
+
+    </ul>
+
+</body>
+
+</html>
