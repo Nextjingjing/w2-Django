@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Directory Listing</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        a { text-decoration: none; color: blue; }
+        a:hover { text-decoration: underline; }
+        .folder { font-weight: bold; color: green; }
+        .file { color: black; }
+    </style>
+</head>
+<body>
+    <h1>Directory Listing for: {{ directory }}</h1>
+    <ul>
+        {% for item in contents %}
+            <li>
+                {% if item.is_dir %}
+                    <a href="?directory_path={{ item.path }}" class="folder">{{ item.name }}/</a>
+                {% else %}
+                    <a href="{{ item.path }}" class="file" target="_blank">{{ item.name }}</a>
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
